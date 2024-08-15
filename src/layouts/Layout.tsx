@@ -1,5 +1,13 @@
+import { Outlet } from "react-router-dom";
+
 function Layout() {
-    return <div>Desde layout</div>;
+    return (
+        <>
+            <main>
+                <Outlet />
+            </main>
+        </>
+    );
 }
 
 export default Layout;
