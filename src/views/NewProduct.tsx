@@ -1,4 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, Form } from "react-router-dom";
+
+export async function action(params: type) {
+    console.log("desde action");
+    return {};
+}
 
 export default function NewProduct() {
     return (
@@ -14,7 +19,7 @@ export default function NewProduct() {
                     Volver a Productos
                 </Link>
             </div>
-            <form className="mt-10">
+            <Form className="mt-10" method="POST" action="">
                 <div className="mb-4">
                     <label className="text-gray-800" htmlFor="name">
                         Nombre Producto:
@@ -56,7 +61,7 @@ export default function NewProduct() {
                     className="mt-5 w-full bg-indigo-600 p-2 text-white font-bold text-lg cursor-pointer rounded"
                     value="Registrar Producto"
                 />
-            </form>
+            </Form>
         </>
     );
 }
