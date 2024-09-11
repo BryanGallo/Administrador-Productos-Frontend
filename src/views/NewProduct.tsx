@@ -1,13 +1,29 @@
-import { Link, Form } from "react-router-dom";
+import { Link, Form, useActionData } from "react-router-dom";
 // import { Request } from "express";
 
 export async function action({ request }) {
     const data = Object.fromEntries(await request.formData());
     console.log(data);
+
+    let error = "";
+    if (Object.values(data).includes("")) {
+        error = "Todos los campos son obligatorios";
+    }
+
+    //*para comunicar esta funcion(action) con el componente debemos retornar lo que deseamos mostrar
+    if (error.length) {
+        return error;
+    }
+    console.log(error);
+
     return {};
 }
 
 export default function NewProduct() {
+    //* con el return de la funcion lo podemos leer con el hook de useActionData()
+    const error = useActionData();
+    console.log(error);
+    
     return (
         <>
             <div className="flex justify-between">
