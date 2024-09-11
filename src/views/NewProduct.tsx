@@ -1,7 +1,9 @@
 import { Link, Form } from "react-router-dom";
+// import { Request } from "express";
 
-export async function action(params: type) {
-    console.log("desde action");
+export async function action({ request }) {
+    const data = Object.fromEntries(await request.formData());
+    console.log(data);
     return {};
 }
 
@@ -53,7 +55,7 @@ export default function NewProduct() {
                         type="text"
                         className="mt-2 block w-full p-3 bg-gray-50"
                         placeholder="Galaxy S21 Ultra"
-                        name="price"
+                        name="description"
                     />
                 </div>
                 <input
