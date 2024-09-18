@@ -1,4 +1,5 @@
 import { safeParse } from "valibot";
+import axios from "axios";
 import { DraftProductSchema } from "../types";
 
 type ProductData = {
@@ -15,8 +16,9 @@ export default async function addProduct(data: ProductData) {
         });
 
         if (result.success) {
-            console.log('vamos a conectarnos con axios ');
-            
+            console.log("vamos a conectarnos con axios ");
+            const url = `${import.meta.env.VITE_API_URL}`;
+            console.log(url);
         } else {
             throw new Error("Datos no validos");
         }
