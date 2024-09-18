@@ -16,9 +16,13 @@ export default async function addProduct(data: ProductData) {
         });
 
         if (result.success) {
-            console.log("vamos a conectarnos con axios ");
-            const url = `${import.meta.env.VITE_API_URL}`;
-            console.log(url);
+            const url = `${import.meta.env.VITE_API_URL}/api/products`;
+            const { data } = await axios.post(url, {
+                name: result.output.name,
+                price: result.output.price,
+                description: result.output.description,
+            });
+            console.log(data);
         } else {
             throw new Error("Datos no validos");
         }
