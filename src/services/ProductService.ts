@@ -22,7 +22,6 @@ export default async function addProduct(data: ProductData) {
                 price: result.output.price,
                 description: result.output.description,
             });
-            console.log(data);
         } else {
             throw new Error("Datos no validos");
         }
