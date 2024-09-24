@@ -1,5 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { getProducts } from "../services/ProductService";
+import { Product } from "../types";
+import ProductDetails from "../components/ProductDetails";
 
 export async function loader() {
     const products = await getProducts();
@@ -10,7 +12,7 @@ export async function loader() {
 }
 
 function Products() {
-    const products = useLoaderData();
+    const products = useLoaderData() as Product[];
 
     return (
         <>
@@ -33,7 +35,14 @@ function Products() {
                             <th className="p-2">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        {products.map((product) => (
+                            <ProductDetails
+                                key={product.id}
+                                product={product}
+                            />
+                        ))}
+                    </tbody>
                 </table>
             </div>
         </>
