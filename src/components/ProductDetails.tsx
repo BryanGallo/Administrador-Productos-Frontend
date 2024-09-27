@@ -6,6 +6,7 @@ type ProductDetailProps = {
 };
 
 function ProductDetails({ product }: ProductDetailProps) {
+    const isAvailability = product.availability;
     return (
         <tr className="border-b text-center">
             <td className="p-3 text-lg text-gray-800">{product.name}</td>
@@ -14,7 +15,17 @@ function ProductDetails({ product }: ProductDetailProps) {
                 {formatCurrency(+product.price)}
             </td>
             <td className="p-3 text-lg text-gray-800">
-                {product.availability}
+                {isAvailability ? "Disponible" : "No disponible"}
+            </td>
+            <td className="p-3 text-lg text-gray-800">
+                <div className="flex gap-2 items-center justify-center">
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Editar
+                    </button>
+                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                        Eliminar
+                    </button>
+                </div>
             </td>
         </tr>
     );
