@@ -30,6 +30,7 @@ function Products() {
                     <thead className="bg-slate-800 text-white">
                         <tr>
                             <th className="p-2">Producto</th>
+                            <th className="p-2">Descripción</th>
                             <th className="p-2">Precio</th>
                             <th className="p-2">Disponibilidad</th>
                             <th className="p-2">Acciones</th>

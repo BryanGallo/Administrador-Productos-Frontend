@@ -5,7 +5,16 @@ type ProductDetailProps = {
 };
 
 function ProductDetails({ product }: ProductDetailProps) {
-    return <div>{product.name}</div>;
+    return (
+        <tr className="border-b text-center">
+            <td className="p-3 text-lg text-gray-800">{product.name}</td>
+            <td className="p-3 text-lg text-gray-800">{product.description}</td>
+            <td className="p-3 text-lg text-gray-800 ">{product.price}</td>
+            <td className="p-3 text-lg text-gray-800">
+                {product.availability}
+            </td>
+        </tr>
+    );
 }
 
 export default ProductDetails;
