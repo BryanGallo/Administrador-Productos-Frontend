@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Product } from "../types";
 import { formatCurrency } from "../utils";
 
@@ -19,9 +20,12 @@ function ProductDetails({ product }: ProductDetailProps) {
             </td>
             <td className="p-3 text-lg text-gray-800">
                 <div className="flex gap-2 items-center justify-center">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <Link
+                        to={`products/${product.id}/edit`}
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
                         Editar
-                    </button>
+                    </Link>
                     <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                         Eliminar
                     </button>
